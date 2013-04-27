@@ -2,6 +2,9 @@ load main
 if !exist('data')
 	data = csvread('train.csv');
 end
+if !exist('tests')
+	tests = csvread('test.csv');
+end
 
 [m,n] = size(data);
 y = data(2:m, 1);
@@ -10,11 +13,13 @@ theta = zeros(n, 1);
 alpha = 0.01;
 
 %computeCost(X, y, theta)
-[theta, dJ] = gradientDescent(X, y, theta, alpha);
+iter_time = 10000000;
+err = 0.0000001;
+[theta, dJ] = gradientDescent(X, y, theta, alpha, iter_time, err);
 %disp(dJ);
 
-res = score(theta);
-csvwrite('result_500.csv', res);
+res = score(theta, tests);
+csvwrite('result_e-7.csv', res);
 
 
 
