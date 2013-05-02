@@ -14,12 +14,12 @@ alpha = 0.001;
 
 %computeCost(X, y, theta)
 iter_time = 1000000000;
-err = 0.00001;
-[theta, dJ] = gradientDescent(X, y, theta, alpha, iter_time, err);
+err = 0.0000001;
+[theta, dJ] = gradientDescent(X, y, theta, alpha, 10, iter_time, err);
 %disp(dJ);
 
 res = score(theta, tests);
-csvwrite('result_e-5-3.csv', res);
+csvwrite('result_e-7-3-r.csv', res);
 
 
 
