@@ -1,0 +1,5 @@
+data = csvread('train.csv');
+[m,n] = size(data);
+% the first row should be ignored and shuffling
+data = shuffling( data(2:m, :) );
+save main

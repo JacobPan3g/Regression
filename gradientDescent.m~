@@ -1,4 +1,4 @@
-function [theta,dJNorm] = gradientDescent(X, y, theta, alpha, landa, iter_time, err )
+function [theta,dJSum] = gradientDescent(X, y, theta, alpha, landa, iter_time, err )
 
 n = length(y);
 m = length(X(1,:));
@@ -16,8 +16,8 @@ for iter = 1:iter_time
 	
 	theta = theta .* regularizetionVector - alpha * dJ;
 	
-	dJNorm = norm(dJ,1)/n;
-	if abs(dJNorm) < err
+	dJSum = norm(dJ,1)/n;
+	if abs(dJSum) < err
 		disp(iter);
 		break;
 	end 
